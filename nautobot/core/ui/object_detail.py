@@ -239,7 +239,7 @@ class Component:
         json_d = json.dumps(d, ensure_ascii=False, sort_keys=True, indent=None)
         # logger.info("JSONified -> %s", json_d)
 
-        hexdigest = hashlib.md5(json_d.encode("utf-8")).digest().hex()  # noqa: S324  # insecure hash function
+        hexdigest = hashlib.md5(json_d.encode("utf-8"), usedforsecurity=False).digest().hex()
         # logger.info("Hashed %s -> %s", self, hexdigest)
         return hexdigest
 
